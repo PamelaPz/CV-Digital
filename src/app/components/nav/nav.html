@@ -1,0 +1,11 @@
+<nav>
+  <div class="wrap">
+    <a class="brand" routerLink="/">pamela<b>.pz</b></a>
+    <div class="nav-links">
+      <a [routerLink]="['/']" fragment="about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Perfil</a>
+      <a routerLink="/experiencia" routerLinkActive="active">Experiencia</a>
+      <a [routerLink]="['/']" fragment="contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Contacto</a>
+    </div>
+    <span class="nav-status"><span class="pulse-dot"></span>Querétaro, MX</span>
+  </div>
+</nav>

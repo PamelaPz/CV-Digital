@@ -1,0 +1,69 @@
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Experiencia</h2>
+    </div>
+
+    <ul class="capabilities">
+      <li>
+        <span class="cap-icon">⚙</span>
+        <strong>Arquitectura escalable</strong>
+        <span>Componentes reutilizables, lazy loading y NgRx.</span>
+      </li>
+      <li>
+        <span class="cap-icon">💳</span>
+        <strong>Integraciones de pago</strong>
+        <span>MercadoPago habilitado en Argentina y México.</span>
+      </li>
+      <li>
+        <span class="cap-icon">🔐</span>
+        <strong>Autenticación enterprise</strong>
+        <span>MSAL y JWT en aplicaciones bancarias.</span>
+      </li>
+      <li>
+        <span class="cap-icon">📊</span>
+        <strong>Visualización de datos</strong>
+        <span>Dashboards con Chart.js y GoJS.</span>
+      </li>
+    </ul>
+
+    @for (engagement of engagements; track engagement.vendor) {
+      <div class="engagement">
+        <div class="engagement-header" (click)="toggle(engagement)">
+          <span class="engagement-vendor">{{ engagement.vendor }}</span>
+          <span class="engagement-period">{{ engagement.period }}</span>
+          <span class="chevron" [class.open]="engagement.expanded">›</span>
+        </div>
+
+        <div class="clients-wrap" [class.collapsed]="!engagement.expanded">
+          <div class="clients-inner">
+            @for (group of engagement.clients; track group.client) {
+              <div class="client-group">
+                <div class="client-label">
+                  <span class="client-name">{{ group.client }}</span>
+                </div>
+
+                @for (project of group.projects; track project.title; let i = $index) {
+                  <article class="proj">
+                    <div class="proj-row">
+                      <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                      <span class="proj-role">{{ project.role }}</span>
+                    </div>
+                    <h3>{{ project.title }}</h3>
+                    <p class="desc">{{ project.desc }}</p>
+                    <div class="tech">
+                      @for (t of project.tech; track t) {
+                        <span class="chip">{{ t }}</span>
+                      }
+                    </div>
+                  </article>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,250 @@
+$arm:  rgba(20, 45, 38, 0.85);
+$arm2: rgba(46, 158, 136, 0.58);
+
+$px: 3px;
+$ic: rgba(46, 158, 136, 1);
+$ie: rgba(180, 255, 225, 0.95);
+$th: rgba(120, 200, 255, 1);   // propulsores — azul claro
+
+// Puntitos pequeños — píxel simple 2×2, sin brazos
+.stars-dots {
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 2px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+  animation: star-twinkle 2s ease-in-out infinite;
+  box-shadow:
+     55px 110px 0 0 $arm,  150px 295px 0 0 $arm,  470px  35px 0 0 $arm,
+    565px 320px 0 0 $arm,  910px  55px 0 0 $arm, 1070px 315px 0 0 $arm,
+   1220px 145px 0 0 $arm, 1420px 275px 0 0 $arm, 1710px  45px 0 0 $arm,
+   1820px 195px 0 0 $arm, 1590px 355px 0 0 $arm,  260px 165px 0 0 $arm;
+}
+
+.game-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+
+  @media (max-width: 768px) { display: none; }
+
+  // Brazos H — elemento 2×2px · spread=1 → píxel 4px (grande) · spread=0 → píxel 2px (mediana)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 2px;
+    background: transparent;
+    pointer-events: none;
+    animation: star-twinkle 2s ease-in-out infinite;
+    box-shadow:
+      // — grandes (píxel 4px): cx-4 · cx · cx+4 —
+      196px  80px 0 1px $arm2,  200px  80px 0 1px $arm2,  204px  80px 0 1px $arm2,
+      496px 200px 0 1px $arm2,  500px 200px 0 1px $arm2,  504px 200px 0 1px $arm2,
+      846px 100px 0 1px $arm2,  850px 100px 0 1px $arm2,  854px 100px 0 1px $arm2,
+     1196px 280px 0 1px $arm2, 1200px 280px 0 1px $arm2, 1204px 280px 0 1px $arm2,
+     1546px 130px 0 1px $arm2, 1550px 130px 0 1px $arm2, 1554px 130px 0 1px $arm2,
+      // — medianas (píxel 2px): cx-2 · cx · cx+2 —
+       88px 220px 0 0 $arm2,  90px 220px 0 0 $arm2,  92px 220px 0 0 $arm2,
+      348px  50px 0 0 $arm2, 350px  50px 0 0 $arm2, 352px  50px 0 0 $arm2,
+      618px 310px 0 0 $arm2, 620px 310px 0 0 $arm2, 622px 310px 0 0 $arm2,
+      758px  45px 0 0 $arm2, 760px  45px 0 0 $arm2, 762px  45px 0 0 $arm2,
+     1038px 190px 0 0 $arm2, 1040px 190px 0 0 $arm2, 1042px 190px 0 0 $arm2,
+     1378px  70px 0 0 $arm2, 1380px  70px 0 0 $arm2, 1382px  70px 0 0 $arm2,
+     1678px 240px 0 0 $arm2, 1680px 240px 0 0 $arm2, 1682px 240px 0 0 $arm2,
+      418px 290px 0 0 $arm2,  420px 290px 0 0 $arm2,  422px 290px 0 0 $arm2;
+  }
+
+  // Brazos V — mismas posiciones centrales, offset en Y
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 2px;
+    background: transparent;
+    pointer-events: none;
+    animation: star-twinkle 2s ease-in-out infinite;
+    box-shadow:
+      // — grandes (píxel 4px): cy-4 · cy · cy+4 —
+      200px  76px 0 1px $arm2,  200px  80px 0 1px $arm2,  200px  84px 0 1px $arm2,
+      500px 196px 0 1px $arm2,  500px 200px 0 1px $arm2,  500px 204px 0 1px $arm2,
+      850px  96px 0 1px $arm2,  850px 100px 0 1px $arm2,  850px 104px 0 1px $arm2,
+     1200px 276px 0 1px $arm2, 1200px 280px 0 1px $arm2, 1200px 284px 0 1px $arm2,
+     1550px 126px 0 1px $arm2, 1550px 130px 0 1px $arm2, 1550px 134px 0 1px $arm2,
+      // — medianas (píxel 2px): cy-2 · cy · cy+2 —
+       90px 218px 0 0 $arm2,  90px 220px 0 0 $arm2,  90px 222px 0 0 $arm2,
+      350px  48px 0 0 $arm2, 350px  50px 0 0 $arm2, 350px  52px 0 0 $arm2,
+      620px 308px 0 0 $arm2, 620px 310px 0 0 $arm2, 620px 312px 0 0 $arm2,
+      760px  43px 0 0 $arm2, 760px  45px 0 0 $arm2, 760px  47px 0 0 $arm2,
+     1040px 188px 0 0 $arm2, 1040px 190px 0 0 $arm2, 1040px 192px 0 0 $arm2,
+     1380px  68px 0 0 $arm2, 1380px  70px 0 0 $arm2, 1380px  72px 0 0 $arm2,
+     1680px 238px 0 0 $arm2, 1680px 240px 0 0 $arm2, 1680px 242px 0 0 $arm2,
+      420px 288px 0 0 $arm2,  420px 290px 0 0 $arm2,  420px 292px 0 0 $arm2;
+  }
+}
+
+// Columna vertical de 5 invasores — posición controlada desde TypeScript
+.formation {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  margin-top: -92px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  will-change: transform;
+}
+
+.inv {
+  display: block;
+  width: 33px;
+  height: 24px;
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: $px;
+    height: $px;
+    background: transparent;
+    box-shadow:
+      6px  0px  0 0 $ic, 24px 0px  0 0 $ic,
+      9px  3px  0 0 $ic, 21px 3px  0 0 $ic,
+      6px  6px  0 0 $ic,  9px 6px  0 0 $ic, 12px 6px  0 0 $ic,
+      15px 6px  0 0 $ic, 18px 6px  0 0 $ic, 21px 6px  0 0 $ic, 24px 6px 0 0 $ic,
+      3px  9px  0 0 $ic,  6px 9px  0 0 $ic, 12px 9px  0 0 $ic,
+      15px 9px  0 0 $ic, 18px 9px  0 0 $ic, 24px 9px  0 0 $ic, 27px 9px 0 0 $ic,
+      0px  12px 0 0 $ic,  3px 12px 0 0 $ic,  6px 12px 0 0 $ic,
+      9px  12px 0 0 $ic, 12px 12px 0 0 $ic, 15px 12px 0 0 $ic,
+      18px 12px 0 0 $ic, 21px 12px 0 0 $ic, 24px 12px 0 0 $ic,
+      27px 12px 0 0 $ic, 30px 12px 0 0 $ic,
+      0px  15px 0 0 $ic,  6px 15px 0 0 $ic,  9px 15px 0 0 $ic,
+      12px 15px 0 0 $ic, 15px 15px 0 0 $ic, 18px 15px 0 0 $ic,
+      21px 15px 0 0 $ic, 24px 15px 0 0 $ic, 30px 15px 0 0 $ic,
+      0px  18px 0 0 $ic,  6px 18px 0 0 $ic, 24px 18px 0 0 $ic, 30px 18px 0 0 $ic,
+      9px  21px 0 0 $ic, 12px 21px 0 0 $ic, 18px 21px 0 0 $ic, 21px 21px 0 0 $ic;
+  }
+
+  &.exploding::after {
+    animation: inv-explode 0.5s linear forwards;
+  }
+
+  &.dead::after {
+    opacity: 0;
+    box-shadow: none;
+  }
+}
+
+.ship-group {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  margin-top: -13px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  animation: ship-bob 2.5s steps(20) infinite alternate;
+}
+
+.laser {
+  width: 20px;
+  height: 3px;
+  background: rgba(46, 158, 136, 0.5);
+  flex-shrink: 0;
+  opacity: 0;
+
+  &.firing {
+    opacity: 1;
+    animation: laser-fire-h 0.8s ease-in forwards;
+  }
+}
+
+.cannon {
+  position: relative;
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: $px;
+    height: $px;
+    background: transparent;
+    box-shadow:
+      // ── triángulo (nariz izq, base dcha) ──
+      18px  0px 0 0 $ic,                                                                   // f0
+      12px  3px 0 0 $ic, 15px  3px 0 0 $ic, 18px  3px 0 0 $ic,                           // f1
+       6px  6px 0 0 $ic,  9px  6px 0 0 $ic, 12px  6px 0 0 $ic, 15px  6px 0 0 $ic, 18px  6px 0 0 $ic, // f2
+       3px  9px 0 0 $ic,  6px  9px 0 0 $ic,  9px  9px 0 0 $ic, 12px  9px 0 0 $ic, 15px  9px 0 0 $ic, 18px  9px 0 0 $ic, // f3
+       0px 12px 0 0 $ic,  3px 12px 0 0 $ic,  6px 12px 0 0 $ic,  9px 12px 0 0 $ic, 12px 12px 0 0 $ic, 15px 12px 0 0 $ic, 18px 12px 0 0 $ic, // f4 (nariz)
+       3px 15px 0 0 $ic,  6px 15px 0 0 $ic,  9px 15px 0 0 $ic, 12px 15px 0 0 $ic, 15px 15px 0 0 $ic, 18px 15px 0 0 $ic, // f5
+       6px 18px 0 0 $ic,  9px 18px 0 0 $ic, 12px 18px 0 0 $ic, 15px 18px 0 0 $ic, 18px 18px 0 0 $ic, // f6
+      12px 21px 0 0 $ic, 15px 21px 0 0 $ic, 18px 21px 0 0 $ic,                           // f7
+      18px 24px 0 0 $ic,                                                                   // f8
+      // ── propulsores (rectángulos en base dcha, color claro) ──
+      21px  6px 0 0 $th, 24px  6px 0 0 $th, 21px  9px 0 0 $th, 24px  9px 0 0 $th,       // propulsor superior
+      21px 15px 0 0 $th, 24px 15px 0 0 $th, 21px 18px 0 0 $th, 24px 18px 0 0 $th;       // propulsor inferior
+  }
+}
+
+// ── Keyframes ────────────────────────────────────────────────
+
+@keyframes ship-bob {
+  from { transform: translateY(-90px); }
+  to   { transform: translateY(90px);  }
+}
+
+@keyframes laser-fire-h {
+  0%   { transform: translateX(0);        opacity: 1;   }
+  85%  { transform: translateX(-1400px);  opacity: 0.8; }
+  100% { transform: translateX(-1400px);  opacity: 0;   }
+}
+
+@keyframes inv-explode {
+  0% {
+    animation-timing-function: steps(1, end);
+    box-shadow:
+      12px  6px 0 0 $ie, 18px  6px 0 0 $ie,
+      12px 12px 0 0 $ie, 18px 12px 0 0 $ie;
+    opacity: 1;
+  }
+  34% {
+    animation-timing-function: steps(1, end);
+    box-shadow:
+       6px  0px 0 0 $ie, 24px  0px 0 0 $ie,
+       3px  9px 0 0 $ie, 27px  9px 0 0 $ie,
+       6px 18px 0 0 $ie, 24px 18px 0 0 $ie;
+    opacity: 0.85;
+  }
+  67% {
+    animation-timing-function: steps(1, end);
+    box-shadow:
+       0px  0px 0 0 $ie, 30px  0px 0 0 $ie,
+       0px  9px 0 0 $ie, 30px  9px 0 0 $ie,
+       0px 21px 0 0 $ie, 30px 21px 0 0 $ie;
+    opacity: 0.45;
+  }
+  100% {
+    box-shadow: none;
+    opacity: 0;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ship-group, .laser { animation: none; }
+  .inv.exploding::after { animation: none; }
+  .stars-dots, .game-bg::before, .game-bg::after { animation: none; }
+}

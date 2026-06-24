@@ -1,0 +1,11 @@
+<section class="brands">
+  <div class="wrap">
+    <ul class="logos-row">
+      @for (logo of logos; track logo.alt) {
+        <li>
+          <img [src]="logo.src" [alt]="logo.alt" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>

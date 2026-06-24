@@ -1,0 +1,267 @@
+header {
+  background: var(--ink);
+  color: var(--text-bright);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -5%, rgba(46, 158, 136, 0.18), transparent 65%),
+      radial-gradient(ellipse 50% 40% at 90% 80%, rgba(46, 158, 136, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(46, 158, 136, 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; }
+}
+
+.hero-eyebrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--petrol-bright);
+  box-shadow: 0 0 0 0 rgba(46, 158, 136, 0.5);
+  animation: pulse 2.4s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(46, 158, 136, 0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(46, 158, 136, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(46, 158, 136, 0); }
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(46px, 8vw, 88px);
+  line-height: 1.0;
+  letter-spacing: -2px;
+  margin: 24px 0 0;
+  color: var(--text-bright);
+
+  .last {
+    color: var(--petrol-bright);
+    position: relative;
+    display: inline-block;
+    animation: glitch-main 6s steps(1) infinite;
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    &::before {
+      color: #e83c6f;
+      animation: glitch-a 6s steps(1) infinite;
+    }
+
+    &::after {
+      color: #00dcc8;
+      animation: glitch-b 6s steps(1) infinite;
+    }
+  }
+}
+
+.role-title {
+  font-family: var(--mono);
+  font-size: clamp(12px, 1.5vw, 15px);
+  color: var(--petrol);
+  margin-top: 18px;
+  letter-spacing: 1.5px;
+
+  &::before {
+    content: '> ';
+    color: var(--petrol-bright);
+    opacity: 0.8;
+  }
+}
+
+.thesis {
+  max-width: 680px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-top: 22px;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 11px 18px;
+  border-radius: 6px;
+  transition: transform 0.15s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--petrol-bright);
+  color: #ffffff;
+  font-weight: 600;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: var(--signal);
+  }
+}
+
+.btn-ghost {
+  border: 1px solid rgba(46, 158, 136, 0.4);
+  color: var(--text);
+  background: rgba(46, 158, 136, 0.06);
+
+  &:hover {
+    border-color: var(--petrol-bright);
+    color: var(--text-bright);
+    background: rgba(46, 158, 136, 0.12);
+  }
+}
+
+.panel {
+  margin-top: 60px;
+  border-top: 1px solid rgba(46, 158, 136, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  position: relative;
+  z-index: 1;
+
+  .wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat {
+  padding: 24px 22px 28px;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+
+  &:last-child { border-right: none; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    &::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--petrol-bright);
+      flex-shrink: 0;
+    }
+  }
+
+  .num {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 36px;
+    margin-top: 10px;
+    color: var(--text-bright);
+  }
+
+  .sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.6;
+    min-height: 32px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 760px) {
+  .panel .wrap { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: none; }
+  .stat:nth-child(1),
+  .stat:nth-child(2) { border-bottom: 1px solid rgba(0,0,0,0.07); }
+}
+
+// ── Glitch keyframes ─────────────────────────────────────────
+
+@keyframes glitch-main {
+  0%, 82%, 88%, 93%, 97%, 100% { transform: translate(0); }
+  83% { transform: translate( 2px, -1px); }
+  84% { transform: translate(-2px,  1px); }
+  85% { transform: translate( 1px,  0);   }
+  86% { transform: translate(-1px,  0);   }
+  87% { transform: translate( 0);         }
+  94% { transform: translate(-3px,  1px); }
+  95% { transform: translate( 3px, -1px); }
+  96% { transform: translate(-1px,  0);   }
+}
+
+@keyframes glitch-a {
+  0%, 82%, 88%, 93%, 97%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  83% { clip-path: inset(18% 0 62% 0); transform: translate(-5px); }
+  84% { clip-path: inset(52% 0 28% 0); transform: translate( 6px); }
+  85% { clip-path: inset( 7% 0 80% 0); transform: translate(-4px); }
+  86% { clip-path: inset(35% 0 48% 0); transform: translate( 5px); }
+  87% { clip-path: inset(0   0 100% 0); transform: translate(0);   }
+  94% { clip-path: inset(70% 0 12% 0); transform: translate( 7px); }
+  95% { clip-path: inset( 5% 0 82% 0); transform: translate(-5px); }
+  96% { clip-path: inset(40% 0 42% 0); transform: translate( 4px); }
+}
+
+@keyframes glitch-b {
+  0%, 82%, 88%, 93%, 97%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  83% { clip-path: inset(55% 0 25% 0); transform: translate( 5px); }
+  84% { clip-path: inset(22% 0 58% 0); transform: translate(-6px); }
+  85% { clip-path: inset(75% 0  8% 0); transform: translate( 4px); }
+  86% { clip-path: inset(10% 0 72% 0); transform: translate(-5px); }
+  87% { clip-path: inset(0   0 100% 0); transform: translate(0);   }
+  94% { clip-path: inset(30% 0 55% 0); transform: translate(-7px); }
+  95% { clip-path: inset(60% 0 22% 0); transform: translate( 5px); }
+  96% { clip-path: inset(15% 0 68% 0); transform: translate(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; }
+  h1 .last,
+  h1 .last::before,
+  h1 .last::after { animation: none; }
+}

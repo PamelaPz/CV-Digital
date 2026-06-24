@@ -1,0 +1,16 @@
+<div class="game-bg" aria-hidden="true">
+  <span class="stars-dots"></span>
+  <div class="formation" #formation [style.transform]="'translateX(' + formationX + 'px)'">
+    @for (inv of invaders; track inv.id) {
+      <span class="inv"
+        [class.exploding]="inv.state === 'exploding'"
+        [class.dead]="inv.state === 'dead'">
+      </span>
+    }
+  </div>
+
+  <div class="ship-group" #shipGroup>
+    <span class="laser" #laser [class.firing]="laserFiring"></span>
+    <span class="cannon"></span>
+  </div>
+</div>

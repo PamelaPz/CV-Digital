@@ -1,0 +1,61 @@
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Perfil</h2>
+    </div>
+
+    <div class="bio-grid">
+      <div class="bio-col">
+        <p>
+          Ingeniera Frontend con más de 5 años entregando interfaces enterprise en producción.
+          He trabajado con <strong>Accenture, Santander, KOF e iA Interactive (Cinépolis, Cinépolis Klic)</strong>
+          construyendo dashboards financieros, sistemas de pago digital e integraciones bancarias
+          — siempre en equipos ágiles con Angular y TypeScript.
+        </p>
+      </div>
+      <div class="skill-group frontend-card">
+        <div class="gl">{{ frontendGroup.label }}</div>
+        <div class="chips">
+          @for (chip of frontendGroup.chips; track chip) {
+            <span class="chip">{{ chip }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="soft-head">Hard Skills</div>
+    <div class="skills-strip">
+      @for (group of otherGroups; track group.label) {
+        <div class="skill-group">
+          <div class="gl">{{ group.label }}</div>
+          <div class="chips">
+            @for (chip of group.chips; track chip) {
+              <span class="chip">{{ chip }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="soft-head">Soft Skills</div>
+    <div class="soft-grid">
+      <div class="soft-card">
+        <div class="gl">Liderazgo de demanda</div>
+        <p>Lidero un equipo de 11 personas encargadas de conectar talento con proyectos cliente — gestión de asignaciones estratégicas, seguimiento de demandas y manejo de información confidencial.</p>
+      </div>
+      <div class="soft-card">
+        <div class="gl">Liderazgo área de Bench</div>
+        <p>Coordino equipo de 6 personas con sesiones semanales de bench, rotación de liderazgo y herramientas propias: calendario, bitácora, tracker de asistencias y entrevistas con clientes.</p>
+      </div>
+      <div class="soft-card">
+        <div class="gl">Trabajo en equipo</div>
+        <p>Colaboración continua con equipos de UX/UI, backend, QA y stakeholders en proyectos enterprise con metodología ágil.</p>
+      </div>
+      <div class="soft-card">
+        <div class="gl">Comunicación con cliente</div>
+        <p>Más de 6 sesiones directas con cliente para guiar integraciones técnicas, demos de entrega y capacitación a usuarios finales.</p>
+      </div>
+    </div>
+  </div>
+</section>

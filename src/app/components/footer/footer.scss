@@ -1,0 +1,24 @@
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(46, 158, 136, 0.25);
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+  }
+}
+
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.footer-stack {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--petrol-bright);
+  letter-spacing: 0.5px;
+}
