@@ -7,28 +7,50 @@
       <span class="eyebrow muted">Remoto / Híbrido en Querétaro</span>
     </div>
     <h1>Jessica Pamela<br><span class="last" data-text="Pérez Pérez">Pérez Pérez</span></h1>
-    <div class="role-title">Frontend Engineer · Angular &amp; TypeScript</div>
-    <p class="thesis">
-      Construyo aplicaciones web empresariales — interfaces responsivas, flujos complejos
-      y experiencias de usuario para sectores bancario, consumo masivo, entretenimiento y marketing digital.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" routerLink="/experiencia">Ver experiencia →</a>
-      <a class="btn btn-ghost" href="https://github.com/PamelaPz" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/jessicaperezfrontendengineer" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://1drv.ms/b/c/847c024e6455b1a4/IQBkLfVdve1rQpOxjfM5hCGeAXg8f7P4TuK_F4YcUQq-7D8?e=fcoEDG" target="_blank" rel="noopener">Descargar CV</a>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="wrap">
-      @for (stat of stats; track stat.label) {
-        <div class="stat">
-          <div class="label">{{ stat.label }}</div>
-          <div class="num">{{ stat.num }}</div>
-          <div class="sub">{{ stat.sub }}</div>
-        </div>
-      }
+    <div class="role-row">
+      <div class="role-title">Frontend Engineer · Angular &amp; TypeScript</div>
+      <span class="role-sep">&mdash;</span>
+      <div class="cta-links">
+        <a href="https://github.com/PamelaPz" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="cta-sep">·</span>
+        <a href="https://linkedin.com/in/jessicaperezfrontendengineer" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <span class="cta-sep">·</span>
+        <a href="https://1drv.ms/b/c/847c024e6455b1a4/IQBkLfVdve1rQpOxjfM5hCGeAXg8f7P4TuK_F4YcUQq-7D8?e=fcoEDG" target="_blank" rel="noopener">Descargar CV ↓</a>
+      </div>
     </div>
   </div>
 </header>
+
+<div class="panel">
+  <div class="wrap">
+    @for (stat of stats; track stat.label) {
+      <div class="stat">
+        <div class="label">{{ stat.label }}</div>
+        <div class="num">{{ stat.num }}</div>
+        <div class="sub">{{ stat.sub }}</div>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="hero-brands">
+  <div class="wrap">
+    <div class="resumen-block">
+      <span class="resumen-label">Resumen</span>
+      <div class="resumen-row">
+        <p class="thesis">
+          Construyo aplicaciones web empresariales — interfaces responsivas, flujos complejos
+          y experiencias de usuario para sectores bancario, consumo masivo, entretenimiento y marketing digital.
+        </p>
+        <a class="btn btn-primary" routerLink="/experiencia">Ver experiencia →</a>
+      </div>
+    </div>
+    <ul class="hero-logos">
+      <li><img src="logos/Accenture.png" alt="Accenture" /></li>
+      <li><img src="logos/KOF.png" alt="KOF" /></li>
+      <li><img src="logos/Santander.png" alt="Santander" /></li>
+      <li><img src="logos/ia-interactive.svg" alt="iA Interactive" /></li>
+      <li><img src="logos/Cinepolis.png" alt="Cinépolis" /></li>
+    </ul>
+  </div>
+</div>

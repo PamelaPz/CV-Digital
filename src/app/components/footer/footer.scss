@@ -21,4 +21,6 @@ footer {
   font-size: 11px;
   color: var(--petrol-bright);
   letter-spacing: 0.5px;
+
+  @media (max-width: 640px) { display: none; }
 }

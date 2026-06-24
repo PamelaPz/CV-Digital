@@ -29,7 +29,10 @@ $th: rgba(120, 200, 255, 1);   // propulsores — azul claro
   pointer-events: none;
   z-index: 0;
 
-  @media (max-width: 768px) { display: none; }
+  @media (max-width: 768px) {
+    .formation,
+    .ship-group { display: none; }
+  }
 
   // Brazos H — elemento 2×2px · spread=1 → píxel 4px (grande) · spread=0 → píxel 2px (mediana)
   &::before {

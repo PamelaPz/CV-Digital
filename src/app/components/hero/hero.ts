@@ -15,8 +15,8 @@ interface Stat {
 })
 export class Hero {
   stats: Stat[] = [
-    { label: 'Experiencia', num: '5+ años', sub: 'desarrollo frontend' },
-    { label: 'Stack actual', num: 'Angular 19', sub: 'TypeScript · RxJS' },
+    { label: 'Experiencia', num: '5+ años', sub: 'Frontend Developer' },
+    { label: 'Stack actual', num: 'Angular', sub: 'TypeScript · RxJS' },
     { label: 'Proyectos', num: '8+', sub: 'en producción' },
     { label: 'Sectores', num: '4', sub: 'banca · consumo masivo · entretenimiento · marketing' },
   ];

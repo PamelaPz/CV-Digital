@@ -1,11 +1,28 @@
-<nav>
+<nav [class.menu-open]="menuOpen">
   <div class="wrap">
-    <a class="brand" routerLink="/">pamela<b>.pz</b></a>
+    <a class="brand" routerLink="/" (click)="close()">pamela<b>.pz</b></a>
+
     <div class="nav-links">
-      <a [routerLink]="['/']" fragment="about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Perfil</a>
+      <a routerLink="/perfil" routerLinkActive="active">Perfil</a>
       <a routerLink="/experiencia" routerLinkActive="active">Experiencia</a>
       <a [routerLink]="['/']" fragment="contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Contacto</a>
     </div>
+
     <span class="nav-status"><span class="pulse-dot"></span>Querétaro, MX</span>
+
+    <button class="hamburger" (click)="toggle()" [attr.aria-expanded]="menuOpen" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="overlay" [class.open]="menuOpen" (click)="close()"></div>
+
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <a routerLink="/perfil" (click)="close()">Perfil</a>
+    <a routerLink="/experiencia" (click)="close()">Experiencia</a>
+    <a [routerLink]="['/']" fragment="contact" (click)="close()">Contacto</a>
+    <span class="mobile-location"><span class="pulse-dot"></span>Querétaro, MX</span>
   </div>
 </nav>

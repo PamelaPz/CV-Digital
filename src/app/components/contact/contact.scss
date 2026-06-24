@@ -44,39 +44,3 @@ p {
   justify-content: center;
   margin-top: 30px;
 }
-
-.btn {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  padding: 11px 18px;
-  border-radius: 6px;
-  transition: transform 0.15s, background 0.2s, border-color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--petrol-bright);
-  color: #ffffff;
-  font-weight: 600;
-
-  &:hover {
-    transform: translateY(-2px);
-    background: var(--signal);
-  }
-}
-
-.btn-ghost {
-  border: 1px solid rgba(46, 158, 136, 0.35);
-  color: var(--text);
-  background: rgba(46, 158, 136, 0.06);
-
-  &:hover {
-    border-color: var(--petrol-bright);
-    color: var(--text-bright);
-    background: rgba(46, 158, 136, 0.12);
-  }
-}

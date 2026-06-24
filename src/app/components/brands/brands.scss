@@ -14,7 +14,9 @@
   flex-wrap: nowrap;
 
   @media (max-width: 640px) {
-    gap: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
   }
 
   li {
@@ -28,6 +30,11 @@
     &:nth-child(3) { width: 220px; height: 75px; } // Santander
     &:nth-child(4) { width: 240px; height: 82px; } // iA Interactive
     &:nth-child(5) { width: 140px; height: 50px; } // Cinépolis
+
+    @media (max-width: 640px) {
+      width: 100% !important;
+      height: 56px !important;
+    }
   }
 
   img {
